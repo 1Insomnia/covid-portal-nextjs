@@ -2,7 +2,6 @@ import PropTypes from 'prop-types'
 import { Box, Flex } from '@chakra-ui/react'
 // Components
 import NavLink from './NavLink'
-import ThemeToggle from './ThemeToggle'
 
 const Header = ({ path }) => {
   return (
@@ -11,7 +10,6 @@ const Header = ({ path }) => {
         <NavLink href="/" path={path}>
           Covid Portal
         </NavLink>
-        <ThemeToggle />
       </Flex>
     </Box>
   )
