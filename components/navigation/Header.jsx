@@ -1,17 +1,16 @@
 import PropTypes from 'prop-types'
-import { Box, Flex } from '@chakra-ui/react'
 // Components
 import NavLink from './NavLink'
 
 const Header = ({ path }) => {
   return (
-    <Box as="header" p={4}>
-      <Flex justify="space-between" align="center">
-        <NavLink href="/" path={path}>
+    <header className="py-4">
+      <NavLink href="/" path={path}>
+        <h1 className="text-4xl font-bold tracking-tighter text-center">
           Covid Portal
-        </NavLink>
-      </Flex>
-    </Box>
+        </h1>
+      </NavLink>
+    </header>
   )
 }
 

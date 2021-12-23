@@ -1,17 +1,14 @@
-import { Box, Container } from '@chakra-ui/react'
 // Components
 import Header from '../navigation/Header'
 import Footer from '../navigation/Footer'
 
 const Main = ({ children, router }) => {
   return (
-    <Container maxW="container.lg">
+    <div className="bg-blue-dark text-white container">
       <Header path={router.asPath} />
-      <Box as="main" minH="100vh" router={router} py={12}>
-        {children}
-      </Box>
+      <main>{children}</main>
       <Footer />
-    </Container>
+    </div>
   )
 }
 

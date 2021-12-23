@@ -1,12 +1,11 @@
-import { getLatestAllCountries, getLatestTotals } from '../lib/fetchData'
+// React & Next
 import Head from 'next/head'
 import { useMemo } from 'react'
-import { Box } from '@chakra-ui/react'
-
+// lib
+import { getLatestAllCountries, getLatestTotals } from '../lib/fetchData'
 // Components
-import DataTable from './components/data/DataTable'
-import LatestTotals from './components/data/LatestTotals'
-import Hero from './components/Hero'
+import DataTable from '../components/data/DataTable'
+import LatestTotals from '../components/data/LatestTotals'
 
 const Home = ({ total, totalError, latestTotals, latestTotalsError }) => {
   total.sort((a, b) => b.confirmed - a.confirmed)
@@ -44,11 +43,10 @@ const Home = ({ total, totalError, latestTotals, latestTotalsError }) => {
         <meta name="description" content="Covid Portal Homepage" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Hero />
-      <Box as="section">
+      <section>
         {!latestTotalsError && <LatestTotals {...latestTotals[0]} />}
         {!totalError && <DataTable columns={columns} data={total} />}
-      </Box>
+      </section>
     </>
   )
 }

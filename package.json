@@ -5,26 +5,23 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettify": "prettier --write ."
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.7.3",
-    "@emotion/react": "^11",
-    "@emotion/styled": "^11",
-    "@fontsource/m-plus-rounded-1c": "^4.5.0",
-    "framer-motion": "^4",
     "inter-ui": "^3.19.3",
     "next": "12.0.7",
     "prop-types": "^15.7.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
-    "react-table": "^7.7.0",
-    "swr": "^1.1.1"
+    "react-table": "^7.7.0"
   },
   "devDependencies": {
     "eslint": "8.5.0",
     "eslint-config-next": "12.0.7",
-    "prettier": "^2.5.1"
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^3.0.0"
   }
 }
