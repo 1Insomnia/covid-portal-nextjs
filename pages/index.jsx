@@ -5,32 +5,44 @@ import { useMemo } from 'react'
 import { getLatestAllCountries, getLatestTotals } from '../lib/fetchData'
 // Components
 import DataTable from '../components/data/DataTable'
-import LatestTotals from '../components/data/LatestTotals'
+import Latest from '../components/data/Latest'
+import BaseLink from '../components/navigation/BaseLink'
+import { formatNumber } from '../lib/helpers'
 
 const Home = ({ total, totalError, latestTotals, latestTotalsError }) => {
-  total.sort((a, b) => b.confirmed - a.confirmed)
+  const dataSet = [...total].sort((a, b) => b.confirmed - a.confirmed)
 
   const columns = useMemo(
     () => [
       {
         Header: 'Country',
-        accessor: 'country'
+        accessor: 'country',
+        Cell: e => (
+          <BaseLink
+            href={`/country/${encodeURIComponent(e.value)}`}
+            text={e.value}
+          />
+        )
       },
       {
         Header: 'Confirmed',
-        accessor: 'confirmed'
+        accessor: 'confirmed',
+        Cell: e => formatNumber(e.value)
       },
       {
         Header: 'Recovered',
-        accessor: 'recovered'
+        accessor: 'recovered',
+        Cell: e => formatNumber(e.value)
       },
       {
         Header: 'Critical',
-        accessor: 'critical'
+        accessor: 'critical',
+        Cell: e => formatNumber(e.value)
       },
       {
         Header: 'Deaths',
-        accessor: 'deaths'
+        accessor: 'deaths',
+        Cell: e => formatNumber(e.value)
       }
     ],
     []
@@ -44,8 +56,8 @@ const Home = ({ total, totalError, latestTotals, latestTotalsError }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section>
-        {!latestTotalsError && <LatestTotals {...latestTotals[0]} />}
-        {!totalError && <DataTable columns={columns} data={total} />}
+        {!latestTotalsError && <Latest {...latestTotals[0]} />}
+        {!totalError && <DataTable columns={columns} data={dataSet} />}
       </section>
     </>
   )

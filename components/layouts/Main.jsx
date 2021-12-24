@@ -6,7 +6,7 @@ const Main = ({ children, router }) => {
   return (
     <div className="bg-blue-dark text-white container">
       <Header path={router.asPath} />
-      <main>{children}</main>
+      <main className="min-h-screen">{children}</main>
       <Footer />
     </div>
   )

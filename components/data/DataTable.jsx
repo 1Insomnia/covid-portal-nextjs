@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
-import { useTable } from 'react-table'
+import { useSortBy, useTable } from 'react-table'
 
 const DataTable = ({ columns, data }) => {
-  const tableInstance = useTable({ columns, data })
+  const tableInstance = useTable({ columns, data }, useSortBy)
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     tableInstance
 
@@ -10,14 +10,14 @@ const DataTable = ({ columns, data }) => {
     <div className="p-4 overflow-auto">
       <table
         {...getTableProps()}
-        className="text-left w-full bg-blue  rounded-xl"
+        className="text-left w-full bg-blue rounded-xl"
       >
-        <thead className="bg-blue-light flex text-white w-full rounded-t-xl">
+        <thead className="bg-blue-light flex items-center text-white w-full rounded-t-xl">
           {headerGroups.map((headerGroup, index) => (
             <tr
               {...headerGroup.getHeaderGroupProps()}
               key={index}
-              className="flex items-center w-full mb-4"
+              className="flex w-full"
             >
               {headerGroup.headers.map((column, index) => (
                 <th
@@ -41,7 +41,7 @@ const DataTable = ({ columns, data }) => {
               <tr
                 {...row.getRowProps()}
                 key={index}
-                className="flex w-full mb-4 items-center"
+                className="flex w-full items-center border-b border-gray-100"
               >
                 {row.cells.map((cell, index) => (
                   <td

@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
 import { formatNumber } from '../../lib/helpers'
 
-const LatestTotals = ({ confirmed, recovered, critical, deaths }) => (
+const Latest = ({ title, confirmed, recovered, critical, deaths }) => (
   <div className="py-10">
     <h2 className="text-2xl text-center tracking-tight font-bold mb-10">
-      World&apos;s Total
+      {title}
     </h2>
     <div className="text-center grid grid-cols-2 md:grid-cols-4 gap-4">
       <div>
@@ -27,11 +27,11 @@ const LatestTotals = ({ confirmed, recovered, critical, deaths }) => (
   </div>
 )
 
-LatestTotals.propTypes = {
+Latest.propTypes = {
   confirmed: PropTypes.number,
   recovered: PropTypes.number,
   critical: PropTypes.number,
   deaths: PropTypes.number
 }
 
-export default LatestTotals
+export default Latest

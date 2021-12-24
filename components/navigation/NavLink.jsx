@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
 import NextLink from 'next/link'
 
-const NavLink = ({ href, path, children }) => {
+const NavLink = ({ href, path, children, className }) => {
   const active = href === path
 
   return (
     <NextLink href={href}>
-      <a>{children}</a>
+      <a className={className}>{children}</a>
     </NextLink>
   )
 }
