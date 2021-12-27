@@ -7,23 +7,20 @@ const DataTable = ({ columns, data }) => {
     tableInstance
 
   return (
-    <div className="p-4 overflow-auto">
-      <table
-        {...getTableProps()}
-        className="text-left w-full bg-blue rounded-xl"
-      >
-        <thead className="bg-blue-light flex items-center text-white w-full rounded-t-xl">
+    <div className="overflow-x-auto w-full h-screen-3/4 overflow-y-auto table-wrapper">
+      <table {...getTableProps()} className="text-left w-full bg-blue">
+        <thead className="block bg-blue-light text-white w-full sticky top-0">
           {headerGroups.map((headerGroup, index) => (
             <tr
               {...headerGroup.getHeaderGroupProps()}
               key={index}
-              className="flex w-full"
+              className="flex w-full items-center"
             >
               {headerGroup.headers.map((column, index) => (
                 <th
                   {...column.getHeaderProps()}
                   key={index}
-                  className="p-4 w-1/5"
+                  className="py-3 px-6 w-1/5 text-left whitespace-nowrap"
                 >
                   {column.render('Header')}
                 </th>
@@ -33,7 +30,7 @@ const DataTable = ({ columns, data }) => {
         </thead>
         <tbody
           {...getTableBodyProps()}
-          className="flex flex-col items-center justify-between overflow-y-scroll w-full h-screen-1/2"
+          className="flex flex-col items-center justify-between w-full text-sm"
         >
           {rows.map((row, index) => {
             prepareRow(row)
@@ -41,13 +38,13 @@ const DataTable = ({ columns, data }) => {
               <tr
                 {...row.getRowProps()}
                 key={index}
-                className="flex w-full items-center border-b border-gray-100"
+                className="flex w-full items-center border-b border-gray-200 hover:bg-gray-100"
               >
                 {row.cells.map((cell, index) => (
                   <td
                     {...cell.getCellProps()}
                     key={index}
-                    className="p-4 w-1/5"
+                    className="py-3 px-6 w-1/5 text-left whitespace-nowrap"
                   >
                     {cell.render('Cell')}
                   </td>

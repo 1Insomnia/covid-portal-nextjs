@@ -27,22 +27,28 @@ const Home = ({ total, totalError, latestTotals, latestTotalsError }) => {
       {
         Header: 'Confirmed',
         accessor: 'confirmed',
-        Cell: e => formatNumber(e.value)
+        Cell: e => (
+          <span className="text-yellow-500">{formatNumber(e.value)}</span>
+        )
       },
       {
         Header: 'Recovered',
         accessor: 'recovered',
-        Cell: e => formatNumber(e.value)
+        Cell: e => (
+          <span className="text-green-500">{formatNumber(e.value)}</span>
+        )
       },
       {
         Header: 'Critical',
         accessor: 'critical',
-        Cell: e => formatNumber(e.value)
+        Cell: e => (
+          <span className="text-orange-500">{formatNumber(e.value)}</span>
+        )
       },
       {
         Header: 'Deaths',
         accessor: 'deaths',
-        Cell: e => formatNumber(e.value)
+        Cell: e => <span className="text-red-500">{formatNumber(e.value)}</span>
       }
     ],
     []
@@ -56,7 +62,9 @@ const Home = ({ total, totalError, latestTotals, latestTotalsError }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section>
-        {!latestTotalsError && <Latest {...latestTotals[0]} />}
+        {!latestTotalsError && (
+          <Latest {...latestTotals[0]} title="Total World" />
+        )}
         {!totalError && <DataTable columns={columns} data={dataSet} />}
       </section>
     </>

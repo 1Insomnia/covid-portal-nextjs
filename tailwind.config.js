@@ -16,7 +16,8 @@ module.exports = {
     },
     extend: {
       height: {
-        'screen-1/2': '50vh'
+        'screen-1/2': '50vh',
+        'screen-3/4': '75vh'
       },
       colors: {
         blue: {

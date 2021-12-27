@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .table-wrapper::-webkit-scrollbar {
+    width: 12px; /* width of the entire scrollbar */
+  }
+
+  .table-wrapper::-webkit-scrollbar-track {
+    @apply bg-blue;
+  }
+
+  .table-wrapper::-webkit-scrollbar-thumb {
+    @apply bg-blue-dark rounded-lg;
+    border: 2px solid white;
+  }
+}
